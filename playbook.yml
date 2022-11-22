@@ -1,10 +1,13 @@
 - name: install monitoring stack
-  hosts: monitor
+  hosts: all
+  remote_user: ubuntu
   become: true
   roles:
   - prometheus
   - grafana
+  - ome.cadvisor
 - name: install node-exporter
+  remote_user: ubuntu
   hosts: all
   become: true
   roles:
